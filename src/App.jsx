@@ -5,15 +5,28 @@ import "./header/Header"
 import Header from './header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [image, setImage] = useState("/cars/volvo.png")
 
   return (
     <>
-    <Header />
+      <div className="container">
 
-    <div id='info'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ratione deleniti eos quos architecto cum nostrum. Modi dicta commodi aut vero ut odio asperiores ipsam dolorem nemo magni, minus eligendi.</p>
-    </div>
+        <select
+          className="dropdown"
+          name="cars"
+          id="cars"
+          onChange={(e) => setImage(e.target.value)}
+        >
+          <option value="/cars/volvo.png">Volvo</option>
+          <option value="/cars/Mercedes.png">Mercedes</option>
+          <option value="/cars/saab.png">Saab</option>
+          <option value="/cars/audi.png">Audi</option>
+        </select>
+
+        <div className="image-wrapper">
+          <img src={image} alt="car" />
+        </div>
+      </div>
     </>
   )
 }
